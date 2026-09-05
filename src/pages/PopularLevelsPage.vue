@@ -45,7 +45,7 @@ async function loadData(period: Period, isRefresh = false) {
   error.value = null;
   activeLevelId.value = null;
   try {
-    const payload = await fetchJson(`https://levelthumbs.prevter.me/stats/levels?period=${period}`);
+    const payload = await fetchJson(`/stats/levels?period=${period}`);
     const data = unwrap<TopLevelStatWithInfo[]>(payload);
     levels.value = Array.isArray(data) ? data : [];
   } catch (e) {
@@ -191,7 +191,7 @@ function formatRequests(n: number): string {
           <div class="featured-card reveal delay-1" @click="openLevel(featured)">
             <div class="featured-thumb">
               <img
-                  :src="`https://levelthumbs.prevter.me/thumbnail/${featured.level_id}/small`"
+                  :src="`/thumbnail/${featured.level_id}/small`"
                   :alt="levelDisplayName(featured)"
                   loading="lazy"
                   @error="(e) => (e.target as HTMLImageElement).style.opacity = '0'"
@@ -250,7 +250,7 @@ function formatRequests(n: number): string {
             >
               <div class="card-thumb">
                 <img
-                    :src="`https://levelthumbs.prevter.me/thumbnail/${level.level_id}/small`"
+                    :src="`/thumbnail/${level.level_id}/small`"
                     :alt="levelDisplayName(level)"
                     loading="lazy"
                     @error="(e) => (e.target as HTMLImageElement).style.opacity = '0'"
@@ -307,7 +307,7 @@ function formatRequests(n: number): string {
           <div class="lightbox-image-wrap" @click="closeLevel">
             <img
                 v-if="activeLevel()"
-                :src="`https://levelthumbs.prevter.me/thumbnail/${activeLevel()!.level_id}`"
+                :src="`/thumbnail/${activeLevel()!.level_id}`"
                 :alt="levelDisplayName(activeLevel()!)"
                 onerror="this.alt = 'Oops! Seems like this level is missing a thumbnail!'; this.style='padding: 128px;';"
             />
