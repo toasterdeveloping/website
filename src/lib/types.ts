@@ -180,3 +180,17 @@ export interface UserListResponse {
   total: number;
   total_pages: number;
 }
+
+export type Period = 'day' | 'week' | 'month';
+
+export interface TopLevelStatWithInfo {
+  level_id: number;
+  requests: number;
+  level_name: string | null;
+  creator_id: number | null;
+  creator_name: string | null;
+  stars: number | null;
+  length: typeof LENGTH_NAMES[number] | null;
+  rating: typeof RATING_NAMES[number] | null;
+  difficulty: typeof DIFFICULTY_NAMES[number] | null;
+}

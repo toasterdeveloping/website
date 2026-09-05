@@ -33,6 +33,7 @@ window.addEventListener('scroll', () => {
     <div class="nav-links">
       <a href="/swagger" class="nav-link">API Docs</a>
       <a href="/#features" class="nav-link">Features</a>
+      <router-link to="/popular" class="nav-link">Popular</router-link>
       <a href="/dashboard" @click.prevent="trySignIn" class="nav-link sign-in">
         {{ SessionManager.isAuthenticated() ? "Dashboard" : "Sign in" }}
       </a>

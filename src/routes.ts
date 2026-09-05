@@ -1,5 +1,6 @@
 export default [
     { path: '/', component: () => import('./pages/HomePage.vue') },
+    { path: '/popular', component: () => import('./pages/PopularLevelsPage.vue') },
     { path: '/dashboard', component: () => import('./pages/DashboardPage.vue'), meta: { requiresAuth: true } },
     { path: '/privacy', component: () => import('./pages/PrivacyPage.vue') },
     { path: '/terms', component: () => import('./pages/TermsPage.vue') },
