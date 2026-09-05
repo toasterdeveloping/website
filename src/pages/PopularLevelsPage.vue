@@ -113,6 +113,7 @@ function creatorUrl(l: TopLevelStatWithInfo): string | undefined {
 function rankSuffix(rank: number): string {
   if (rank >= 4 && rank <= 20) return 'th';
   const lastDigit = rank % 10;
+  if (lastDigit === 1) return 'st';
   if (lastDigit === 2) return 'nd';
   if (lastDigit === 3) return 'rd';
   return 'th';
